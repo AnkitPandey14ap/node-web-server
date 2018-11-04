@@ -5,6 +5,7 @@ var app=express();
 const hbs=require('hbs');
 app.set('view engine',hbs);
 app.use(express.static(__dirname+'/public'));
+const port=process.env.PORT || 3000;
 const data={
 		project: 'boloo',
 		team:[
@@ -26,7 +27,7 @@ app.get('/',(req,res)=>{
 	});
 	// res.send(arr);
 })
-
+ 
 app.get('/bad',(req,res)=>{
 	res.send('bad');
 })
@@ -38,6 +39,6 @@ app.get('/about',(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
-	console.log('Server is hoting on port 3000');
+app.listen(port,()=>{
+	console.log(`Server is hoting on port: ${port}`);
 });
